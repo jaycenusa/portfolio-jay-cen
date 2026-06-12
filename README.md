@@ -1,59 +1,89 @@
-# PortfolioJayCen
+# Jay Cen Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.15.
+A personal portfolio website showcasing Jay Cen as a UX-minded, quality-driven frontend engineer. The application presents professional information across dedicated pages for background, achievements, projects, and contact details.
 
-## Development server
+## Purpose
 
-To start a local development server, run:
+This application serves as an online portfolio to:
 
-```bash
-ng serve
+- Introduce Jay Cen and highlight frontend engineering focus
+- Share background information through the **About Me** page
+- Display accomplishments on the **Achievements** page
+- Showcase work on the **Projects** page
+- Provide a way to get in touch on the **Contact** page
+
+The site uses a clean, responsive layout with a shared header navigation and a bold hero section on the home page.
+
+## Technology Stack
+
+| Category | Technology |
+| -------- | ---------- |
+| Framework | [Angular 21](https://angular.dev/) |
+| Language | [TypeScript](https://www.typescriptlang.org/) |
+| Styling | [Tailwind CSS 4](https://tailwindcss.com/) |
+| Routing | Angular Router (standalone components) |
+| Build tool | [Angular CLI](https://angular.dev/tools/cli) with esbuild (`@angular/build`) |
+| Testing | [Vitest](https://vitest.dev/) |
+| Deployment | [GitHub Actions](https://github.com/features/actions) → GitHub Pages |
+
+## Project Structure
+
+```
+src/app/
+├── layout/          # Shared header and page shell
+└── page/
+    ├── home-page/
+    ├── about-me/
+    ├── achievements/
+    ├── projects/
+    └── contact/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Getting Started
 
-## Code scaffolding
+### Prerequisites
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js 20+
+- npm
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Install dependencies
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
-
-To build the project run:
+### Run locally
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Open [http://localhost:4200](http://localhost:4200) in your browser.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### Build for production
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+Output is written to `dist/portfolio-jay-cen/browser`.
 
-For end-to-end (e2e) testing, run:
+### Run tests
 
 ```bash
-ng e2e
+npm test
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Deployment
 
-## Additional Resources
+Pushes to the `main` branch trigger the GitHub Actions workflow in `.github/workflows/deploy.yml`, which builds the app and deploys it to GitHub Pages.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+To enable deployment:
+
+1. Push the repository to GitHub
+2. Go to **Settings → Pages**
+3. Set **Source** to **GitHub Actions**
+
+## License
+
+Private project.
