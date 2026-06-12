@@ -2,6 +2,8 @@
 
 A personal portfolio website showcasing Jay Cen as a UX-minded, quality-driven frontend engineer. The application presents professional information across dedicated pages for background, achievements, projects, and contact details.
 
+**Live site:** [https://jaycenusa.github.io/portfolio-jay-cen](https://jaycenusa.github.io/portfolio-jay-cen)
+
 ## Purpose
 
 This application serves as an online portfolio to:
@@ -76,7 +78,7 @@ npm test
 
 ## Deployment
 
-Pushes to the `main` branch trigger the GitHub Actions workflow in `.github/workflows/deploy.yml`, which builds the app and deploys it to GitHub Pages.
+Pushes to the `main` branch trigger the GitHub Actions workflow in `.github/workflows/deploy.yml`, which builds the app and deploys it to [GitHub Pages](https://jaycenusa.github.io/portfolio-jay-cen).
 
 To enable deployment:
 
