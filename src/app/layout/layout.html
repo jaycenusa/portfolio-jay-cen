@@ -1,6 +1,6 @@
 <div class="flex min-h-screen flex-col bg-white">
   <nav class="grid grid-cols-3 items-center border-b border-gray-200 px-8 py-4">
-    <a routerLink="/home" class="justify-self-start">
+    <a routerLink="/logo" class="justify-self-start">
       <img
         src="images/JC-logo.png"
         alt="JC Logo"
@@ -10,15 +10,9 @@
 
     <div class="flex flex-nowrap justify-center gap-8">
       <a
-        routerLink="/home"
+        routerLink="/"
         routerLinkActive="bg-gray-100 text-gray-900"
-        class="rounded-full px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
-      >
-        Home
-      </a>
-      <a
-        routerLink="/about-me"
-        routerLinkActive="bg-gray-100 text-gray-900"
+        [routerLinkActiveOptions]="{ exact: true }"
         class="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
       >
         About Me
