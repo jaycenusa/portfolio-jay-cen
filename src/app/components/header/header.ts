@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-layout',
+  selector: 'app-header',
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
-  templateUrl: './layout.html',
+  templateUrl: './header.html',
+  styleUrl: './header.scss',
 })
-export class Layout {}
+export class Header {}
