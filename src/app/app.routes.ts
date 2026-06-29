@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { Layout } from './layout/layout';
+import { Header } from './components/header/header';
 import { Logo } from './page/logo/logo';
 import { AboutMe } from './page/about-me/about-me';
 import { Achievements } from './page/achievements/achievements';
@@ -9,7 +9,7 @@ import { Contact } from './page/contact/contact';
 export const routes: Routes = [
   {
     path: '',
-    component: Layout,
+    component: Header,
     children: [
       { path: '', component: AboutMe, pathMatch: 'full' },
       { path: 'logo', component: Logo },

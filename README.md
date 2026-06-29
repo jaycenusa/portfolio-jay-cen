@@ -80,11 +80,14 @@ npm test
 
 Pushes to the `main` branch trigger the GitHub Actions workflow in `.github/workflows/deploy.yml`, which builds the app and deploys it to [GitHub Pages](https://jaycenusa.github.io/portfolio-jay-cen).
 
+**Important:** In your repo, go to **Settings → Pages** and set **Source** to **GitHub Actions** (not "Deploy from a branch"). If Source is set to the `main` branch, GitHub will serve `README.md` instead of the built Angular app.
+
 To enable deployment:
 
 1. Push the repository to GitHub
 2. Go to **Settings → Pages**
 3. Set **Source** to **GitHub Actions**
+4. Re-run the **Deploy** workflow from the **Actions** tab if needed
 
 ## License
 

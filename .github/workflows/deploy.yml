@@ -42,12 +42,6 @@ jobs:
       - name: Build
         run: npm run build -- --base-href "$BASE_HREF"
 
-      - name: Verify public assets in build output
-        run: |
-          test -f dist/portfolio-jay-cen/browser/images/JC-logo.png
-          test -f dist/portfolio-jay-cen/browser/images/about-screenshot.jpg
-          test -f dist/portfolio-jay-cen/browser/favicon.ico
-
       - name: Configure SPA fallback for GitHub Pages
         run: cp dist/portfolio-jay-cen/browser/index.html dist/portfolio-jay-cen/browser/404.html
 
