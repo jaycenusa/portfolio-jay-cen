@@ -11,9 +11,11 @@ permissions:
   pages: write
   id-token: write
 
+# Queue Pages deploys; do not cancel in-progress runs — cancellation can wedge
+# GitHub Pages deployments and leave later deploys stuck indefinitely.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -53,6 +55,10 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
