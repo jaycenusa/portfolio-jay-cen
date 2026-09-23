@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { contactLinks } from '../../data/portfolio.data';
 
 @Component({
   selector: 'app-contact',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
-export class Contact {}
+export class Contact {
+  readonly links = contactLinks;
+}

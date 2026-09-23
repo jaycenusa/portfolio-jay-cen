@@ -1,0 +1,28 @@
+<section class="section-block">
+  <p class="section-label">// 004 — Experience</p>
+  <h1 class="section-heading">Work history</h1>
+
+  <div class="experience-list">
+    @for (job of experience; track job.role + job.company + job.period) {
+      <article class="experience-item">
+        <div class="experience-item__meta">
+          <p class="experience-item__period">{{ job.period }}</p>
+          <p class="experience-item__company">{{ job.company }}</p>
+          <p class="experience-item__location">{{ job.location }}</p>
+        </div>
+
+        <div class="experience-item__details">
+          <h2 class="experience-item__role">{{ job.role }}</h2>
+          <ul class="experience-item__bullets">
+            @for (bullet of job.bullets; track bullet) {
+              <li>
+                <span class="experience-item__dot" aria-hidden="true"></span>
+                <span>{{ bullet }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      </article>
+    }
+  </div>
+</section>

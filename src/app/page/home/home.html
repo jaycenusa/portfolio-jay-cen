@@ -1,0 +1,33 @@
+<div class="portfolio-slides">
+  <section id="about" class="slide-panel" aria-label="About">
+    <app-about-me />
+  </section>
+
+  <section id="skills" class="slide-panel" aria-label="Skills">
+    <app-skills />
+  </section>
+
+  <section id="projects" class="slide-panel" aria-label="Projects">
+    <app-projects />
+  </section>
+
+  <section id="experience" class="slide-panel" aria-label="Experience">
+    <app-experience />
+  </section>
+
+  <footer class="site-footer">
+    <p class="site-footer__copy">© 2026 Jay Cen — Built with precision</p>
+    <div class="site-footer__links">
+      @for (link of socialLinks; track link.label) {
+        <a
+          [href]="link.href"
+          [attr.target]="link.external ? '_blank' : null"
+          [attr.rel]="link.external ? 'noopener noreferrer' : null"
+          class="site-footer__link"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </div>
+  </footer>
+</div>

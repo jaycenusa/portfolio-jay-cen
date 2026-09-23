@@ -1,48 +1,67 @@
-<div class="flex min-h-screen flex-col bg-white">
-  <nav class="grid grid-cols-3 items-center border-b border-gray-200 px-8 py-4">
-    <a routerLink="/logo" class="justify-self-start">
-      <img
-        src="images/JC-logo.png"
-        alt="JC Logo"
-        class="h-20 w-auto"
-      />
-    </a>
-
-    <div class="flex flex-nowrap justify-center gap-8">
+<div class="site-shell">
+  <nav class="site-nav">
+    <div class="site-nav__inner">
       <a
         routerLink="/"
-        routerLinkActive="bg-gray-100 text-gray-900"
-        [routerLinkActiveOptions]="{ exact: true }"
-        class="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
+        fragment="about"
+        class="site-nav__brand"
+        aria-label="Jay Cen logo"
+        (click)="closeMenu()"
       >
-        About Me
+        <img
+          src="images/JC-logo.png"
+          alt="JC Logo"
+          class="site-nav__logo"
+        />
       </a>
-      <a
-        routerLink="/achievements"
-        routerLinkActive="bg-gray-100 text-gray-900"
-        class="rounded-full px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
+
+      <div class="site-nav__links">
+        @for (item of navItems; track item.fragment) {
+          <a
+            routerLink="/"
+            [fragment]="item.fragment"
+            routerLinkActive="site-nav__link--active"
+            [routerLinkActiveOptions]="fragmentActiveOptions"
+            class="site-nav__link"
+          >
+            {{ item.label }}
+          </a>
+        }
+      </div>
+
+      <button
+        type="button"
+        class="site-nav__menu-toggle"
+        [attr.aria-expanded]="menuOpen"
+        aria-controls="mobile-nav"
+        aria-label="Toggle menu"
+        (click)="toggleMenu()"
       >
-        Achievements
-      </a>
-      <a
-        routerLink="/projects"
-        routerLinkActive="bg-gray-100 text-gray-900"
-        class="rounded-full px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
-      >
-        Projects
-      </a>
-      <a
-        routerLink="/contact"
-        routerLinkActive="bg-gray-100 text-gray-900"
-        class="rounded-full px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
-      >
-        Contact
-      </a>
+        <span class="site-nav__menu-bar" [class.site-nav__menu-bar--open-top]="menuOpen"></span>
+        <span class="site-nav__menu-bar" [class.site-nav__menu-bar--hidden]="menuOpen"></span>
+        <span class="site-nav__menu-bar" [class.site-nav__menu-bar--open-bottom]="menuOpen"></span>
+      </button>
     </div>
-    <div></div>
+
+    @if (menuOpen) {
+      <div id="mobile-nav" class="site-nav__mobile">
+        @for (item of navItems; track item.fragment) {
+          <a
+            routerLink="/"
+            [fragment]="item.fragment"
+            routerLinkActive="site-nav__link--active"
+            [routerLinkActiveOptions]="fragmentActiveOptions"
+            class="site-nav__mobile-link"
+            (click)="closeMenu()"
+          >
+            {{ item.label }}
+          </a>
+        }
+      </div>
+    }
   </nav>
 
-  <main class="flex-1">
+  <main class="site-shell__main">
     <router-outlet />
   </main>
 </div>

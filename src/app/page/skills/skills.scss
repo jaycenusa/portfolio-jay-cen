@@ -1,0 +1,75 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  min-height: var(--section-height);
+}
+
+.section-heading {
+  margin: 0 0 clamp(2rem, 4vh, 3.5rem);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.section-label {
+  margin-bottom: 1rem;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 1.25rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.skill-card {
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background-color: var(--card);
+  padding: 1.5rem;
+}
+
+.skill-card__category {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.skill-card__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-chip {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background-color: var(--secondary);
+  padding: 0.35rem 0.7rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  transition:
+    border-color 200ms ease,
+    color 200ms ease;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+    color: var(--foreground);
+  }
+}

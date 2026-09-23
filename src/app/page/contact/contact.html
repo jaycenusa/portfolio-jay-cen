@@ -1,12 +1,25 @@
-<section class="flex min-h-[calc(100vh-6rem)] flex-col justify-center px-6 py-16 md:px-16 lg:px-24">
-  <h1 class="mb-8 text-[clamp(2.5rem,8vw,6rem)] font-bold leading-tight tracking-tight text-gray-900">
-    Contact
+<section class="page-shell flex min-h-[calc(100vh-5rem)] flex-col justify-center">
+  <p class="section-label">// 005 — Contact</p>
+
+  <h1 class="mt-8 max-w-3xl text-[clamp(2.5rem,8vw,5rem)] font-bold tracking-tight text-white">
+    Let's build something thoughtful.
   </h1>
 
-  <div class="max-w-xl rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-8 py-10">
-    <p class="text-sm font-semibold uppercase tracking-widest text-gray-400">Coming soon</p>
-    <p class="mt-4 text-lg text-gray-600">
-      More content will be available here soon. Check back for ways to get in touch.
-    </p>
+  <p class="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-400">
+    Open to frontend engineering opportunities, collaborations, and conversations about
+    Angular, UX, and quality-driven product work.
+  </p>
+
+  <div class="mt-12 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+    @for (link of links; track link.label) {
+      <a
+        [href]="link.href"
+        [attr.target]="link.external ? '_blank' : null"
+        [attr.rel]="link.external ? 'noopener noreferrer' : null"
+        class="btn-secondary"
+      >
+        {{ link.label }}
+      </a>
+    }
   </div>
 </section>

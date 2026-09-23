@@ -1,0 +1,17 @@
+<section class="section-block">
+  <p class="section-label">// 002 — Skills</p>
+  <h1 class="section-heading">Tech stack</h1>
+
+  <div class="skills-grid">
+    @for (group of skillGroups; track group.category) {
+      <article class="skill-card">
+        <h2 class="skill-card__category">{{ group.category }}</h2>
+        <div class="skill-card__items">
+          @for (item of group.items; track item) {
+            <span class="skill-chip">{{ item }}</span>
+          }
+        </div>
+      </article>
+    }
+  </div>
+</section>

@@ -1,3 +1,133 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'tailwindcss';
 
-@import 'tailwindcss';
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --color-background: #07090f;
+  --color-foreground: #e8eaf0;
+  --color-card: #0f1117;
+  --color-card-foreground: #e8eaf0;
+  --color-primary: #c8f135;
+  --color-primary-foreground: #07090f;
+  --color-secondary: #161a24;
+  --color-secondary-foreground: #a0a8bc;
+  --color-muted: #161a24;
+  --color-muted-foreground: #5a6178;
+  --color-accent: #c8f135;
+  --color-accent-foreground: #07090f;
+  --color-border: rgb(255 255 255 / 0.07);
+  --radius-lg: 0.625rem;
+}
+
+:root {
+  --background: #07090f;
+  --foreground: #e8eaf0;
+  --card: #0f1117;
+  --card-foreground: #e8eaf0;
+  --primary: #c8f135;
+  --primary-foreground: #07090f;
+  --secondary: #161a24;
+  --secondary-foreground: #a0a8bc;
+  --muted: #161a24;
+  --muted-foreground: #5a6178;
+  --accent: #c8f135;
+  --border: rgba(255, 255, 255, 0.07);
+  --radius: 0.625rem;
+  --nav-height: 4rem;
+  --section-height: calc(100dvh - var(--nav-height));
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  @apply bg-background font-sans text-foreground antialiased;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.slide-panel {
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: var(--section-height);
+}
+
+.section-block {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: clamp(2rem, 4vh, 4rem) 1.5rem;
+  box-sizing: border-box;
+}
+
+.section-label {
+  @apply font-mono tracking-widest uppercase;
+  font-size: 0.875rem;
+  color: var(--primary);
+}
+
+.page-shell {
+  @apply mx-auto max-w-6xl px-6 py-20 md:px-10 lg:px-16;
+}
+
+.project-number {
+  @apply font-mono text-sm;
+  color: var(--muted-foreground);
+}
+
+.tag-pill {
+  @apply rounded border px-3 py-1.5 font-mono;
+  font-size: 0.875rem;
+  border-color: var(--border);
+  background-color: var(--secondary);
+  color: var(--muted-foreground);
+}
+
+.btn-primary {
+  @apply inline-flex items-center rounded border px-5 py-2.5 font-medium transition-colors;
+  font-size: 1rem;
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+
+  &:hover {
+    filter: brightness(1.05);
+  }
+}
+
+.btn-secondary {
+  @apply inline-flex items-center rounded border px-5 py-2.5 font-medium transition-colors;
+  font-size: 1rem;
+  border-color: var(--border);
+  background: transparent;
+  color: var(--secondary-foreground);
+
+  &:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
